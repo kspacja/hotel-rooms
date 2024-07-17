@@ -28,8 +28,6 @@ export default class ErrorBoundary extends Component<
 
   componentDidCatch(error: Error, info: ErrorInfo) {
     console.error(error, info);
-
-    return true;
   }
 
   render() {

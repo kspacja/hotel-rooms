@@ -7,8 +7,7 @@ export default function Loading() {
     <ul>
       {ITEMS.map((item) => (
         <li key={item} className="mb-6">
-          <Skeleton className="h-14 w-[100%] mb-2" />
-          <Skeleton className="h-10 w-[100%]" />
+          <Skeleton className="h-[95px] w-[100%] mb-2" />
         </li>
       ))}
     </ul>
