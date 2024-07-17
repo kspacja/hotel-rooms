@@ -68,7 +68,13 @@ function RoomCmp({ room }: { room: Room }) {
         <CardTitle>{room.name}</CardTitle>
       </CardHeader>
       <CardFooter className="flex-col items-start sm:items-center sm:flex-row gap-2">
-        <ErrorBoundary fallback={<p>Something goes wrong, try again later</p>}>
+        <ErrorBoundary
+          fallback={
+            <p className="text-red-500">
+              Something goes wrong, try again later
+            </p>
+          }
+        >
           <Suspense
             fallback={
               <>
@@ -106,13 +112,22 @@ export default async function RoomList({ start, end, sort }: RoomListProps) {
 
   const sortedRooms = [...rooms].sort(sortFunctions[sort]);
 
+  const slicedRooms = sortedRooms.slice(start, end);
+
   return (
     <ul>
-      {sortedRooms.slice(start, end).map((room) => (
+      {slicedRooms.map((room) => (
         <li key={room.id} className="mb-6">
           <RoomCmp room={room} />
         </li>
       ))}
+      {slicedRooms.length === 0 && (
+        <li>
+          <p role="alert" aria-live="polite" className="text-center">
+            No rooms found
+          </p>
+        </li>
+      )}
     </ul>
   );
 }
