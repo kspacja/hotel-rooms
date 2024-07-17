@@ -1,3 +1,9 @@
+export type AvailabilityStatus =
+  | "available"
+  | "onRequest"
+  | "soldOut"
+  | "error";
+
 export interface Price {
   currencyCode: "CZK" | "EUR" | "PLN";
   value: number;
@@ -10,7 +16,7 @@ export interface Room {
 }
 
 export interface RoomAvailability {
-  availabilityStatus: "available" | "onRequest" | "soldout" | "error";
+  availabilityStatus: AvailabilityStatus;
   price: Price | null;
 }
 
