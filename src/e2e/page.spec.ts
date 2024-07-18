@@ -29,7 +29,7 @@ test("Main page", async ({ page }) => {
 
   await page.getByText(/From the most expensive/i).click();
 
-  await page.waitForURL(/sort=price:desc/);
+  await page.waitForURL(/sort=price%3Adesc/);
 
   const mostExpensiveRoom = await page.locator("li").nth(0);
 
