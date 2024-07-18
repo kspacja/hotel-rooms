@@ -13,9 +13,11 @@ export default function RoomPrice({
 
   return (
     <div>
-      Price: {formatPrice(price)}{" "}
+      Price: <span aria-label="current price">{formatPrice(price)} </span>
       {!arePricesEqual(price, originalPrice) && (
-        <s className="text-slate-400">{formatPrice(originalPrice)}</s>
+        <s aria-label="original price" className="text-slate-400">
+          {formatPrice(originalPrice)}
+        </s>
       )}
     </div>
   );

@@ -5,19 +5,33 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 import SafeSuspense from "@/components/utilities/safe-suspense";
 import RoomCard from "@/components/domain/room-card";
-import RoomInfo from "@/components/domain/room-info";
+import RoomAvailabilityStatus from "@/components/domain/room-availability-status";
 import sortRooms from "@/lib/sortRooms";
 import { Sort } from "@/sorting";
 import { notFound } from "next/navigation";
+import BookButton from "@/components/domain/book-button";
+import RoomPrice from "@/components/domain/room-price";
 
-async function AwaitedRoomAvailability({ room }: { room: Room }) {
+async function AwaitedRoomInfo({ room }: { room: Room }) {
   const roomAvailability = await apiFetch(`/room/${room.id}`);
 
   if (roomAvailability.availabilityStatus === "error") {
     throw new Error("Availability error");
   }
 
-  return <RoomInfo room={room} roomAvailability={roomAvailability} />;
+  return (
+    <>
+      <RoomPrice
+        originalPrice={room.price}
+        nextPrice={roomAvailability.price}
+      />
+
+      <div className="flex ml-auto items-center gap-4">
+        <RoomAvailabilityStatus status={roomAvailability.availabilityStatus} />
+        <BookButton room={room} availibility={roomAvailability} />
+      </div>
+    </>
+  );
 }
 
 export interface RoomListProps {
@@ -53,7 +67,7 @@ export default async function RoomList({ pagination, sort }: RoomListProps) {
                 </>
               }
             >
-              <AwaitedRoomAvailability room={room} />
+              <AwaitedRoomInfo room={room} />
             </SafeSuspense>
           </RoomCard>
         </li>
