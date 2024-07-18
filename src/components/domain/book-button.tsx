@@ -6,13 +6,14 @@ import formatPrice from "@/lib/formatPrice";
 
 export default function BookButton({
   room,
-  disabled,
+
   availibility,
 }: {
   room: Room;
   availibility: RoomAvailability;
-  disabled: boolean;
 }) {
+  const disabled = availibility.availabilityStatus !== "available";
+
   return (
     <Button
       onClick={() => {

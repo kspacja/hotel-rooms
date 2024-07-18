@@ -25,8 +25,6 @@ export default function RoomInfo({
   room: Room;
   roomAvailability: RoomAvailability;
 }) {
-  const isAvailable = roomAvailability.availabilityStatus === "available";
-
   return (
     <>
       <RoomPrice
@@ -36,11 +34,7 @@ export default function RoomInfo({
 
       <div className="flex ml-auto items-center gap-4">
         <AvailabilityStatusLabel status={roomAvailability.availabilityStatus} />
-        <BookButton
-          room={room}
-          disabled={!isAvailable}
-          availibility={roomAvailability}
-        />
+        <BookButton room={room} availibility={roomAvailability} />
       </div>
     </>
   );
