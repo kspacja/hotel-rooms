@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className)}>
-        <main className="p-6">
+        <main className="p-6 max-w-[1024px] mx-auto">
           <h1>Hotel</h1>
           <h2 className="mb-4">Welcome to our hotel!</h2>
           {children}

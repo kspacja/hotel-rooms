@@ -23,7 +23,7 @@ export default function SortingSelect({ sorting }: SortingSelectProps) {
       {ITEMS.map(([sort, label]) => (
         <Link
           key={sort}
-          href={`?sort=${sort}`}
+          href={`?sort=${encodeURIComponent(sort)}`}
           className={cn(
             { "bg-gray-200": sorting === sort },
             "text-sm py-2 px-3 rounded-lg border no-underline hover:bg-gray-100 whitespace-nowrap"
