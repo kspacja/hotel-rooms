@@ -1,8 +1,10 @@
 "use client";
 
-import { Sort } from "@/sorting";
-import { cn } from "@/lib/stylingUtils";
 import Link from "next/link";
+
+import { Sort } from "@/sorting";
+
+import { cn } from "@/lib/stylingUtils";
 
 export interface SortingSelectProps {
   sorting: string;

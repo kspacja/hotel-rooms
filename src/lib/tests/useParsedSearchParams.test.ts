@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
-
 import * as nextNavigation from "next/navigation";
+
 import useParsedSearchParams from "../useParsedSearchParams";
 import { DEFAULT_PARAMS } from "../searchParamsParse";
 

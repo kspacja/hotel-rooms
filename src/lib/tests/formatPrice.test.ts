@@ -1,6 +1,7 @@
+import formatPrice from "../formatPrice";
+
 import { Price } from "@/api/types";
 
-import formatPrice from "../formatPrice";
 
 const priceA: Price = { currencyCode: "EUR", value: 10 };
 const priceB: Price = { currencyCode: "PLN", value: 10 };

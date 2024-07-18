@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import SafeSuspense from "@/components/utilities/safe-suspense";
 import { lazy } from "react";
+
+import SafeSuspense from "@/components/utilities/safe-suspense";
 
 const LazyComponent = lazy(() => import("./LazyTestComponent"));
 

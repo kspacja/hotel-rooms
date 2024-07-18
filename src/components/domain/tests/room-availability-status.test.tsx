@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+
 import RoomAvailabilityStatus from "@/components/domain/room-availability-status";
 
 describe("RoomAvailabilityStatus", () => {

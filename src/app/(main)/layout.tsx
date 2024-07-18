@@ -1,9 +1,12 @@
-import apiFetch from "@/api/apiFetch";
+import { Suspense } from "react";
+
 import { Skeleton } from "@/components/ui/skeleton";
 import SafeSuspense from "@/components/utilities/safe-suspense";
 
 import { RoomPaginationWrapper, RoomsSortingSelectWrapper } from "./wrappers";
-import { Suspense } from "react";
+
+import apiFetch from "@/api/apiFetch";
+
 
 async function AwaitedPagination() {
   const rooms = await apiFetch("/rooms");

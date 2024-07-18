@@ -1,6 +1,7 @@
 import { useSearchParams } from "next/navigation";
-import searchParamsParse from "./searchParamsParse";
 import { useMemo } from "react";
+
+import searchParamsParse from "./searchParamsParse";
 
 export default function useParsedSearchParams() {
   const searchParams = useSearchParams();

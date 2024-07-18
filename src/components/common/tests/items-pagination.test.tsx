@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import ItemsPagination from "@/components/common/items-pagination";
 import userEvent from "@testing-library/user-event";
 import { useEffect, useState } from "react";
+
+import ItemsPagination from "@/components/common/items-pagination";
 
 function SimpleRouter({
   children,

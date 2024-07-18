@@ -1,10 +1,11 @@
 import { Suspense } from "react";
-import RoomList from "./list";
-import Loading from "./list-loading";
+import { redirect, RedirectType } from "next/navigation";
 
 import searchParamsParse from "@/lib/searchParamsParse";
-import { redirect, RedirectType } from "next/navigation";
 import getPaginationSettings from "@/lib/getPaginationSettings";
+
+import RoomList from "./list";
+import Loading from "./list-loading";
 
 export default async function Home({
   searchParams,

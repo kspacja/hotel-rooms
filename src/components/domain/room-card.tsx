@@ -1,5 +1,6 @@
-import { Room } from "@/api/types";
 import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+
+import { Room } from "@/api/types";
 
 export default function RoomCard({
   room,

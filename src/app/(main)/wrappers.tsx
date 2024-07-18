@@ -1,8 +1,10 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import SortingSelect from "@/components/common/sorting-select";
+
 import useParsedSearchParams from "@/lib/useParsedSearchParams";
+
+import SortingSelect from "@/components/common/sorting-select";
 import ItemsPagination, {
   ItemsPaginationProps,
 } from "@/components/common/items-pagination";

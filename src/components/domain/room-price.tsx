@@ -1,5 +1,6 @@
 import formatPrice from "@/lib/formatPrice";
 import arePricesEqual from "@/lib/arePricesEqual";
+
 import type { Price } from "@/api/types";
 
 export default function RoomPrice({

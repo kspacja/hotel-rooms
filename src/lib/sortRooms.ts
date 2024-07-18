@@ -1,5 +1,6 @@
-import { Room } from "@/api/types";
 import { Sort } from "@/sorting";
+
+import { Room } from "@/api/types";
 
 // TODO: Taking currency into account would be a good idea.
 const sortFunctions: Record<Sort, (a: Room, b: Room) => number> = {

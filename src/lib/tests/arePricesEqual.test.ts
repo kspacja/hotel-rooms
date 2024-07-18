@@ -1,5 +1,6 @@
-import { Price } from "@/api/types";
 import arePricesEqual from "@/lib/arePricesEqual";
+
+import { Price } from "@/api/types";
 
 const priceA: Price = { currencyCode: "EUR", value: 10 };
 const priceB: Price = { currencyCode: "EUR", value: 10 };

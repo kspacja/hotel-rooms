@@ -1,7 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Component, ErrorInfo, useState } from "react";
+
+import { Button } from "@/components/ui/button";
 
 export interface ErrorBoundaryProps {
   fallback: React.ReactNode;

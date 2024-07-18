@@ -1,5 +1,6 @@
-import { SORT_TYPES, DEFAULT_SORT } from "@/sorting";
 import { z } from "zod";
+
+import { SORT_TYPES, DEFAULT_SORT } from "@/sorting";
 
 const sortSchema = z.enum(SORT_TYPES).default(DEFAULT_SORT);
 

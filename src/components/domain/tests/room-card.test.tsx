@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+
 import RoomCard from "@/components/domain/room-card";
 
 describe("RoomCard", () => {

@@ -1,16 +1,19 @@
-import apiFetch from "@/api/apiFetch";
-import { Room } from "@/api/types";
-import formatPrice from "@/lib/formatPrice";
-import { Skeleton } from "@/components/ui/skeleton";
+import { notFound } from "next/navigation";
 
+import { Sort } from "@/sorting";
+
+import formatPrice from "@/lib/formatPrice";
+import sortRooms from "@/lib/sortRooms";
+
+import { Skeleton } from "@/components/ui/skeleton";
 import SafeSuspense from "@/components/utilities/safe-suspense";
 import RoomCard from "@/components/domain/room-card";
 import RoomAvailabilityStatus from "@/components/domain/room-availability-status";
-import sortRooms from "@/lib/sortRooms";
-import { Sort } from "@/sorting";
-import { notFound } from "next/navigation";
 import BookButton from "@/components/domain/book-button";
 import RoomPrice from "@/components/domain/room-price";
+
+import { Room } from "@/api/types";
+import apiFetch from "@/api/apiFetch";
 
 async function AwaitedRoomInfo({ room }: { room: Room }) {
   const roomAvailability = await apiFetch(`/room/${room.id}`);

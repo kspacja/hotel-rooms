@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+
 import ErrorBoundary from "@/components/utilities/error-boundary";
 
 export default function SafeSuspense({

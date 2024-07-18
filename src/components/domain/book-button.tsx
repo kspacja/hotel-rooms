@@ -1,8 +1,10 @@
 "use client";
 
-import type { Room, RoomAvailability } from "@/api/types";
-import { Button } from "@/components/ui/button";
 import formatPrice from "@/lib/formatPrice";
+
+import { Button } from "@/components/ui/button";
+
+import type { Room, RoomAvailability } from "@/api/types";
 
 export default function BookButton({
   room,

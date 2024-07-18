@@ -1,5 +1,6 @@
-import ErrorContainer from "@/components/utilities/error-container";
 import Link from "next/link";
+
+import ErrorContainer from "@/components/utilities/error-container";
 
 export default function NotFound() {
   return (
