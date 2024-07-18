@@ -1,5 +1,7 @@
+export const DEFAULT_SORT = "price:asc" as const;
+
 export const SORT_TYPES = [
-  "price:asc",
+  DEFAULT_SORT,
   "price:desc",
   "name:asc",
   "name:desc",

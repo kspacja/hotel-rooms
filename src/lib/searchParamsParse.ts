@@ -1,11 +1,22 @@
-import { SORT_TYPES } from "@/sorting";
+import { SORT_TYPES, DEFAULT_SORT } from "@/sorting";
 import { z } from "zod";
 
-const sortSchema = z.enum(SORT_TYPES).default("price:asc");
+const sortSchema = z.enum(SORT_TYPES).default(DEFAULT_SORT);
+
+export const DEFAULT_PARAMS = {
+  page: 1,
+  pageSize: 4,
+  sort: DEFAULT_SORT,
+};
 
 const searchParamsSchema = z.object({
-  page: z.coerce.number().int().positive().default(1),
-  pageSize: z.coerce.number().int().positive().max(4).default(4),
+  page: z.coerce.number().int().positive().default(DEFAULT_PARAMS.page),
+  pageSize: z.coerce
+    .number()
+    .int()
+    .positive()
+    .max(4)
+    .default(DEFAULT_PARAMS.pageSize),
   sort: sortSchema,
 });
 

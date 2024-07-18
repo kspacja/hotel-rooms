@@ -1,8 +1,7 @@
 import type { Price } from "@/api/types";
 
-export default function formatPrice(price: Price) {
-  // TODO: Use sth instead of `undefined` to get the user's locale
-  return price.value.toLocaleString(undefined, {
+export default function formatPrice(price: Price, locale = "en-US") {
+  return price.value.toLocaleString(locale, {
     currency: price.currencyCode,
     style: "currency",
   });

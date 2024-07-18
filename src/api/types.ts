@@ -5,7 +5,7 @@ export type AvailabilityStatus =
   | "error";
 
 export interface Price {
-  currencyCode: "CZK" | "EUR" | "PLN";
+  currencyCode: "CZK" | "EUR" | "PLN"; // TODO: handling more currencies (maybe from external source)
   value: number;
 }
 
