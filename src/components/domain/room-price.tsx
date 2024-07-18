@@ -15,7 +15,7 @@ export default function RoomPrice({
     <div>
       Price: <span aria-label="current price">{formatPrice(price)} </span>
       {!arePricesEqual(price, originalPrice) && (
-        <s aria-label="original price" className="text-slate-400">
+        <s aria-label="original price" className="text-slate-500">
           {formatPrice(originalPrice)}
         </s>
       )}
