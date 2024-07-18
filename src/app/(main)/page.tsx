@@ -4,6 +4,7 @@ import Loading from "./list-loading";
 
 import searchParamsParse from "@/lib/searchParamsParse";
 import { redirect, RedirectType } from "next/navigation";
+import getPaginationSettings from "@/lib/getPaginationSettings";
 
 export default async function Home({
   searchParams,
@@ -22,17 +23,13 @@ export default async function Home({
 
   const { page, pageSize, sort } = parsedParams.data;
 
-  // TODO: Move to helper
-  const pageSizeParsed = Number(pageSize);
-  const pageParsed = Number(page);
-
-  const start = (pageParsed - 1) * pageSizeParsed;
-  const end = start + pageSizeParsed;
-
   // Custom Suspense because of this issue: https://github.com/vercel/next.js/issues/49297
   return (
-    <Suspense key={JSON.stringify(searchParams)} fallback={<Loading />}>
-      <RoomList start={start} end={end} sort={sort} />
+    <Suspense key={JSON.stringify(parsedParams.data)} fallback={<Loading />}>
+      <RoomList
+        pagination={getPaginationSettings(page, pageSize)}
+        sort={sort}
+      />
     </Suspense>
   );
 }

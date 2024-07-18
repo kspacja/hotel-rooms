@@ -1,16 +1,11 @@
-import { redirect, RedirectType } from "next/navigation";
+import { SORT_TYPES } from "@/sorting";
 import { z } from "zod";
 
-const sortSchema = z
-  .enum(["price:asc", "price:desc", "name:asc", "name:desc"])
-  .default("price:asc");
-
-export type Sort = z.infer<typeof sortSchema>;
+const sortSchema = z.enum(SORT_TYPES).default("price:asc");
 
 const searchParamsSchema = z.object({
   page: z.coerce.number().int().positive().default(1),
   pageSize: z.coerce.number().int().positive().max(4).default(4),
-
   sort: sortSchema,
 });
 
