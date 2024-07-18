@@ -70,4 +70,12 @@
   h6 {
     @apply text-sm;
   }
+
+  a {
+    @apply underline;
+
+    &:hover {
+      @apply no-underline;
+    }
+  }
 }

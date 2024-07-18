@@ -14,7 +14,7 @@ export default function SafeSuspense({
     <ErrorBoundary
       fallback={
         errorFallback ?? (
-          <p className="text-red-500">Something goes wrong, try again later</p>
+          <p className="text-red-500">Something went wrong, try again later</p>
         )
       }
     >

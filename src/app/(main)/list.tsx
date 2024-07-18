@@ -8,6 +8,7 @@ import RoomCard from "@/components/domain/room-card";
 import RoomInfo from "@/components/domain/room-info";
 import sortRooms from "@/lib/sortRooms";
 import { Sort } from "@/sorting";
+import { notFound } from "next/navigation";
 
 async function AwaitedRoomAvailability({ room }: { room: Room }) {
   const roomAvailability = await apiFetch(`/room/${room.id}`);
@@ -34,6 +35,10 @@ export default async function RoomList({ pagination, sort }: RoomListProps) {
     pagination.start,
     pagination.end
   );
+
+  if (roomsToDisplay.length === 0 && rooms.length > 0) {
+    notFound();
+  }
 
   return (
     <ul>
