@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import SortingSelect from "@/components/common/sorting-select";
 import useParsedSearchParams from "@/lib/useParsedSearchParams";
 import ItemsPagination, {
@@ -8,20 +8,9 @@ import ItemsPagination, {
 } from "@/components/common/items-pagination";
 
 export function RoomsSortingSelectWrapper() {
-  const { push } = useRouter();
   const searchParams = useParsedSearchParams();
 
-  return (
-    <SortingSelect
-      sorting={searchParams.sort}
-      onSortChange={(sort) => {
-        const newSearchParams = new URLSearchParams();
-        newSearchParams.set("sort", sort);
-
-        push(`?${newSearchParams.toString()}`);
-      }}
-    />
-  );
+  return <SortingSelect sorting={searchParams.sort} />;
 }
 
 function useGetPageURL() {

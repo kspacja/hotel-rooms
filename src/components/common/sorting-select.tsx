@@ -1,17 +1,11 @@
 "use client";
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Sort } from "@/sorting";
+import { cn } from "@/lib/stylingUtils";
+import Link from "next/link";
 
 export interface SortingSelectProps {
   sorting: string;
-  onSortChange: (sort: string) => void;
 }
 
 const ITEMS: [Sort, label: string][] = [
@@ -21,22 +15,21 @@ const ITEMS: [Sort, label: string][] = [
   ["name:desc", "By name - descending"],
 ];
 
-export default function SortingSelect({
-  sorting,
-  onSortChange,
-}: SortingSelectProps) {
+export default function SortingSelect({ sorting }: SortingSelectProps) {
   return (
-    <Select defaultValue={sorting} onValueChange={onSortChange}>
-      <SelectTrigger className="w-[250px] justify-start gap-2">
-        Sort by: <SelectValue />
-      </SelectTrigger>
-      <SelectContent>
-        {ITEMS.map(([value, label]) => (
-          <SelectItem key={value} value={value}>
-            {label}
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
+    <div className="flex gap-2 overflow-x-auto pb-1">
+      {ITEMS.map(([sort, label]) => (
+        <Link
+          key={sort}
+          href={`?sort=${sort}`}
+          className={cn(
+            { "bg-gray-200": sorting === sort },
+            "text-sm py-2 px-3 rounded-lg border no-underline hover:bg-gray-100 whitespace-nowrap"
+          )}
+        >
+          {label}
+        </Link>
+      ))}
+    </div>
   );
 }
