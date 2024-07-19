@@ -8,7 +8,7 @@ First, install the dependencies:
 npm install
 ```
 
-Next, create a `.env.local` file in the root of the project and add the following based on the `.env.example` file.
+Next, create a `.env.local` file in the root of the project based on the `.env.example` file.
 
 Next, run the development server:
 
