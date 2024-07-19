@@ -21,17 +21,19 @@ test("Main page", async ({ page }) => {
   await page.getByLabel("Go to next page").click();
   await page.waitForURL(/page=3/);
 
-  const roomC = await page
-    .locator("li")
-    .filter({ hasText: "Two Bedroom Apartment" });
+  const roomC = page.locator("li").filter({ hasText: "Two Bedroom Apartment" });
 
-  await expect(roomC.getByText(/Something went wrong/)).toBeVisible();
+  await expect(
+    roomC.getByText(/Availability is not known at the moment/)
+  ).toBeVisible();
 
   await page.getByText(/From the most expensive/i).click();
 
   await page.waitForURL(/sort=price%3Adesc/);
 
-  const mostExpensiveRoom = await page.locator("li").nth(0);
+  const listOrRooms = page.getByLabel(/list of rooms/i);
+
+  const mostExpensiveRoom = listOrRooms.locator("li").nth(0);
 
   await expect(mostExpensiveRoom).toHaveText(/Penthouse Suite with Balcony/i);
 
