@@ -15,8 +15,6 @@ describe("RoomPrice", () => {
     value: 100,
   };
 
-  const equalAsOriginalPrice = { ...originalPrice };
-
   const nextPrice = {
     currencyCode: "PLN" as const,
     value: 90,
@@ -50,7 +48,7 @@ describe("RoomPrice", () => {
   it("renders the current price when nextPrice is equal to originalPrice", () => {
     render(
       <RoomPrice
-        nextPrice={equalAsOriginalPrice}
+        nextPrice={{ ...originalPrice }}
         originalPrice={originalPrice}
       />
     );

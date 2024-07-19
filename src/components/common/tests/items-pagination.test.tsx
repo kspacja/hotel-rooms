@@ -10,6 +10,7 @@ function SimpleRouter({
   children: (page: number) => React.ReactNode;
 }) {
   const [currentPage, setCurrentPage] = useState(1);
+
   useEffect(() => {
     window.history.pushState({}, "", `#page-${currentPage}`);
 
@@ -22,7 +23,7 @@ function SimpleRouter({
     return () => {
       window.removeEventListener("popstate", popstateHandler);
     };
-  });
+  }, []);
 
   return children(currentPage);
 }

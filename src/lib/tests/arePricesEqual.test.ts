@@ -12,6 +12,7 @@ describe("arePricesEqual", () => {
   it.each([
     [priceA, priceB, true],
     [priceB, priceA, true], // symetric
+    [priceA, priceA, true], // reflexive
     [priceA, priceC, false], // different currency
     [priceA, priceD, false], // different value
     [priceA, priceE, false], // different currency and value

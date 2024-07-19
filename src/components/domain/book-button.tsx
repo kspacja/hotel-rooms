@@ -8,7 +8,6 @@ import type { Room, RoomAvailability } from "@/api/types";
 
 export default function BookButton({
   room,
-
   availibility,
 }: {
   room: Room;

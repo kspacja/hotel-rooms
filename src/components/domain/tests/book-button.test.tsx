@@ -55,7 +55,7 @@ describe("BookButton", () => {
     jest.resetAllMocks();
   });
 
-  it("works correct when availabilityStatus=available", async () => {
+  it("works correctly when availabilityStatus=available", async () => {
     render(<BookButton room={room} availibility={availability} />);
 
     const { buttonElement, allConsoleLogCalls: allConsoleLogs } =
@@ -78,7 +78,7 @@ describe("BookButton", () => {
 `);
   });
 
-  it("works correct when availabilityStatus is other then availiable", async () => {
+  it("works correctly when availabilityStatus is other than availiable", async () => {
     render(<BookButton room={room} availibility={availabilityOnRequest} />);
 
     const { buttonElement, allConsoleLogCalls: allConsoleLogs } =
@@ -88,7 +88,7 @@ describe("BookButton", () => {
     expect(allConsoleLogs).toStrictEqual([]);
   });
 
-  it("doesnt show next price if it is not set", async () => {
+  it("doesn't show next price if it is not set", async () => {
     render(<BookButton room={room} availibility={availabilityNoPrice} />);
 
     const { buttonElement, allConsoleLogCalls: allConsoleLogs } =

@@ -19,7 +19,11 @@ async function AwaitedRoomInfo({ room }: { room: Room }) {
   const roomAvailability = await apiFetch(`/room/${room.id}`);
 
   if (roomAvailability.availabilityStatus === "error") {
-    throw new Error("Availability error");
+    return (
+      <p className="text-red-500 pt-1">
+        Availability is not known at the moment, please try again later
+      </p>
+    );
   }
 
   return (
@@ -53,6 +57,7 @@ export default async function RoomList({ pagination, sort }: RoomListProps) {
     pagination.end
   );
 
+  // When user is on page without rooms, but there are rooms in the system
   if (roomsToDisplay.length === 0 && rooms.length > 0) {
     notFound();
   }

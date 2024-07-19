@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 
 import useParsedSearchParams from "@/lib/useParsedSearchParams";
 
-import SortingSelect from "@/components/common/sorting-select";
+import SortSelect from "@/components/common/sorting-select";
 import ItemsPagination, {
   ItemsPaginationProps,
 } from "@/components/common/items-pagination";
@@ -12,7 +12,7 @@ import ItemsPagination, {
 export function RoomsSortingSelectWrapper() {
   const searchParams = useParsedSearchParams();
 
-  return <SortingSelect sorting={searchParams.sort} />;
+  return <SortSelect sort={searchParams.sort} />;
 }
 
 function useGetPageURL() {
