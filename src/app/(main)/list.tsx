@@ -63,7 +63,7 @@ export default async function RoomList({ pagination, sort }: RoomListProps) {
   }
 
   return (
-    <ul>
+    <ul aria-label="List of rooms">
       {roomsToDisplay.map((room) => (
         <li key={room.id} className="mb-6">
           <RoomCard room={room}>

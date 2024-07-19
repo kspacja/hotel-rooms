@@ -19,7 +19,7 @@ const ITEMS: [Sort, label: string][] = [
 
 export default function SortSelect({ sort: currentSort }: SortSelectProps) {
   return (
-    <ul className="flex gap-2 overflow-x-auto pb-1">
+    <ul aria-label="Sort by" className="flex gap-2 overflow-x-auto pb-1">
       {ITEMS.map(([sort, label]) => (
         <li key={sort}>
           <Link
